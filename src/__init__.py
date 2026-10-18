@@ -1,1 +1,1 @@
-"""Comparador académico de etiquetas nutricionales."""
+"""Conciliador académico de cheques electrónicos sintéticos."""
