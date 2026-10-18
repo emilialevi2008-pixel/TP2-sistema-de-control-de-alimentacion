@@ -1,0 +1,49 @@
+{
+  "registros_banco": 120,
+  "registros_sistema": 120,
+  "registros_validos": {
+    "banco": 118,
+    "sistema": 114
+  },
+  "registros_invalidos": {
+    "banco": 2,
+    "sistema": 6
+  },
+  "cheques_conciliados": 86,
+  "cheques_con_diferencias": 15,
+  "cheques_sin_correspondencia": 11,
+  "cheques_ambiguos": 3,
+  "pendientes_revision": 27,
+  "total_resultados": 139,
+  "importes": {
+    "total_banco": "50505628.82",
+    "total_sistema": "50070182.54",
+    "diferencia_banco_sistema": "435446.28",
+    "diferencia_absoluta": "435446.28",
+    "importe_conciliado": "40522469.11",
+    "importe_con_diferencias_banco": "5765714.38",
+    "importe_con_diferencias_sistema": "5765965.63",
+    "registros_incluidos_banco": 119,
+    "registros_excluidos_banco": 1,
+    "registros_incluidos_sistema": 117,
+    "registros_excluidos_sistema": 3
+  },
+  "importes_por_grupo": {
+    "conciliados": {
+      "banco": "40522469.11",
+      "sistema": "40522469.11"
+    },
+    "con_diferencias": {
+      "banco": "5765714.38",
+      "sistema": "5765965.63"
+    },
+    "sin_correspondencia": {
+      "banco": "2326704.69",
+      "sistema": "2464619.47"
+    },
+    "pendientes_revision": {
+      "banco": "1890740.64",
+      "sistema": "1317128.33"
+    }
+  }
+}
