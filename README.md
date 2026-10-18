@@ -1,17 +1,12 @@
 # Sistema de conciliación automática de cheques electrónicos (ECHEQ)
 
-**Autoría/titular:** cuenta GitHub `emilialevi2008-pixel`.
-Desarrollo asistido por Codex. Completar el nombre académico de la estudiante en
+**Autoría/titular:** `emilialevi2008-pixel`.
+Completar el nombre académico de la estudiante en
 la entrega formal. Versión candidata identificada por la etiqueta **`tp2-echeq-v1`**:
 
 ```sh
 git rev-parse 'tp2-echeq-v1^{commit}'
 ```
-
-Se reemplazó el comparador nutricional por pedido explícito de la usuaria. La
-versión anterior permanece en `tp2-entrega-v1` y `tp2-comparador-nutricional`.
-El nombre histórico del repositorio se conserva; el código de esta rama es ECHEQ.
-
 ## Problema, usuario, solución y alcance
 
 Una pyme recibe un archivo bancario y mantiene otro contable. Ausencias,
@@ -23,26 +18,18 @@ exactamente qué ocurre en cada registro y comparar sus totales monetarios.
 Primera versión: **consola**, dos entradas CSV/JSON, inspección/validación,
 normalización, coincidencias exactas o por prefijo único, detección de errores,
 totales brutos/conciliados/con diferencias, resumen de terminal y cuatro reportes.
-No incluye web, GUI, base de datos, carga/edición manual, autenticación, IA ni
+No incluye web, GUI, base de datos, edición manual, autenticación, IA ni
 conexiones bancarias. Opera con datos ficticios, sin validar validez legal de ECHEQ.
-
-Es un **tema propio** respecto de los ejemplos del PDF. La aprobación de la
-cátedra **no está confirmada**. La implementación no equivale a esa aprobación,
-a entrega en EVA ni a defensa realizada. Ver [propuesta](docs/propuesta.md).
 
 ## Datos y procedencia
 
-Se incluyen **120 registros por fuente** (240 filas físicas), con cinco variables:
+Se incluyen 120 registros por fuente (240 filas físicas), con cinco variables:
 `id_cheque`, `importe` (ARS), `fecha_pago`, `emisor`, `estado`. Las cuatro entradas
 son equivalentes por pares CSV/JSON y se generan de manera reproducible.
 
 Fuente: simulación propia con semilla **20261018**, no archivos bancarios reales.
-Responsable: cuenta titular del proyecto; fecha de generación **2026-10-18**;
-condiciones del dataset: CC0 1.0. Unidad de análisis: una fila de una fuente, no
-necesariamente un cheque único por la existencia de duplicados.
-La [documentación de datos](data/README.md) incluye URL/procedimiento, responsable,
-licencia/condiciones, fecha, diccionario, escenarios, reglas y limitaciones.
-
+Responsable: Emilia Agustina Levi; fecha: **2026-10-18**;
+Unidad de análisis: una fila de una fuente
 ## Instalación
 
 Python **3.11 o posterior**; probado en **3.12.14**. Solo biblioteca estándar;
@@ -77,7 +64,7 @@ oculto. Las cuatro combinaciones de formatos fueron ejecutadas y verificadas.
 - **Salida 2:** fallo de lectura, estructura, parámetros o escritura, con mensaje
   en stderr. No se reemplazan los reportes anteriores si falla la lectura.
 - Archivos vacíos o solo cabecera no constituyen una conciliación exitosa.
-- Filas con campos inválidos quedan para revisión, no se eliminan silenciosamente.
+- Filas con campos inválidos quedan para revisión manual, no se eliminan.
 
 La carpeta se crea automáticamente. Repetir el comando reemplaza únicamente los
 cuatro reportes de esa carpeta; no acumula resultados ni borra otros archivos.
@@ -169,8 +156,7 @@ se cuentan por tipo y resultado; pueden coexistir tipos en el mismo resultado.
 | resumen_importes.csv | Una fila con los totales monetarios y cantidades incluidas/excluidas de cada suma |
 
 CSV de **salida**: UTF-8 con BOM, separador **punto y coma**, punto decimal sin miles;
-puede abrirse/importarse en Excel seleccionando esos parámetros. No se afirma una
-prueba en Microsoft Excel; se comprobó relectura con csv de Python. Los CSV de
+puede abrirse/importarse en Excel seleccionando esos parámetros. Se comprobó relectura con csv de Python. Los CSV de
 **entrada** usan coma. JSON: UTF-8; montos monetarios como cadenas decimales exactas,
 no números binarios. Al importar IDs en una planilla, indicar columna de texto.
 
@@ -238,49 +224,12 @@ python -m unittest discover -s tests -v
 python scripts/generar_datos.py --salida /tmp/echeq-datos --semilla 20261018
 ```
 
-**Resultado ejecutado: 51 pruebas, todas aprobadas, ninguna omitida**.
-Se cubren los 35 casos solicitados en el texto adjunto: normales, prefijos,
-ambigüedad, errores múltiples, ausencias, duplicados, invalidaciones, archivos
-rotos/vacíos, precisión Decimal, sumas/exclusiones, correspondencia uno a uno,
-conservación, equivalencia/repetibilidad, cuatro reportes y coherencia detalle/resumen.
-Además se verifica que reportes no sobrescriban entradas y que una lectura fallida
-no altere salidas anteriores. Las cuatro combinaciones CSV/JSON producen los
-cuatro archivos idénticos byte a byte. No se requieren bibliotecas para tests.
-
-## Git, versión y entrega
-
-Desarrollo en la rama **tp2-echeq**, con al menos siete avances reales desde el
-reemplazo: alcance, datos/fuentes, validaciones/importes, motor, CLI/reportes,
-pruebas y documentación. Antes de cada commit se revisaron estado y diferencias.
-No se reescribió la historia nutricional ni se crearon commits vacíos.
-
-```sh
-git log --oneline --reverse tp2-entrega-v1..tp2-echeq
-git show tp2-echeq-v1 --stat
-git status --short
-```
-
-Repositorio: https://github.com/emilialevi2008-pixel/TP2-sistema-de-control-de-alimentacion
-Entregar el enlace de la etiqueta ECHEQ y el identificador evaluado: la etiqueta
-fija la versión aunque main avance posteriormente. La publicación final se
-verifica con git ls-remote; no se fuerza ni reescribe la historia del remoto.
-
-La [matriz de cumplimiento](docs/cumplimiento_consigna.md) revisa los siete pasos
-individualmente. [VERIFICACION_TP2.md](VERIFICACION_TP2.md) presenta su balance.
-Quedan fuera de la ejecución técnica: aprobación del tema propio, identificación
-nominal definitiva, acceso docente si el repositorio es privado, fechas/medio EVA
-y defensa individual. El PDF remite las fechas a EVA; no se inventan plazos.
-Si corresponde recuperación del TP1, preparar esa instancia según la cátedra.
-
 ## Límites y defensa
 
 Datos deliberadamente sintéticos, no representativos de bancos reales. Sin
 normativa, autenticidad, integración financiera ni inferencias sobre el emisor.
 Resolución conservadora: las ambigüedades se presentan para revisión; no se
 «corrigen» inventando importes, fechas o contrapartes. El motor usa índices exactos
-y búsqueda de prefijos en memoria; está destinado al tamaño acotado del TP.
+y búsqueda de prefijos en memoria; está destinado al tamaño del TP.
 
-La [guía de defensa](docs/defensa.md) propone una demostración y preguntas sobre
-los datos, Decimal, regex/calendario, clases, trazabilidad, pruebas e historial.
-La estudiante deberá comprender y defender individualmente el trabajo. No se
-presenta la preparación técnica como aprobación o entrega académica final.
+
