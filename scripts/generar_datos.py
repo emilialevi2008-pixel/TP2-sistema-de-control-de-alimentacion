@@ -9,7 +9,7 @@ from pathlib import Path
 import random
 
 SEMILLA = 20261018
-FECHA_GENERACION = '2026-10-18'
+FECHA_GENERACION = '18/10/2026'
 CAMPOS = ['id_cheque', 'importe', 'fecha_pago', 'emisor', 'estado']
 
 
@@ -54,6 +54,9 @@ def generar(semilla=SEMILLA):
                 'emisor': 'Emisor ficticio adicional', 'estado': 'EMITIDO'}
     banco.extend(fila(c) for c in ['ECH-777777000001','ECH-777777000002','ECH-888888123456','ECH-000000000001'])
     sistema.extend(fila(c) for c in ['ECH-777777','ECH-888888','ECH-888888123','ECH-000000000001'])
+    # La muestra se entrega en día/mes/año, también sus casos inválidos deliberados.
+    for registro in banco+sistema:
+        registro['fecha_pago'] = '/'.join(reversed(registro['fecha_pago'].split('-')))
     return banco, sistema
 
 
