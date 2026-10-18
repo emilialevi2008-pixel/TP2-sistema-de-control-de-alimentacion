@@ -6,9 +6,7 @@ Fuente: **simulación propia**, no extractos bancarios. Procedimiento completo e
 [`scripts/generar_datos.py`](../scripts/generar_datos.py). URL del procedimiento:
 https://github.com/emilialevi2008-pixel/TP2-sistema-de-control-de-alimentacion/blob/tp2-echeq/scripts/generar_datos.py
 
-Responsable del proyecto: cuenta `emilialevi2008-pixel`; generación e implementación
-asistidas por Codex. Fecha de generación: **2026-10-18**. No hubo consulta de datos
-externos: la fecha de generación reemplaza una fecha de consulta de fuente remota.
+Responsable del proyecto:`emilialevi2008-pixel` Fecha de generación: **2026-10-18**. 
 Condiciones de uso del conjunto sintético: **CC0 1.0**
 (https://creativecommons.org/publicdomain/zero/1.0/). No se atribuyen operaciones,
 empresas, personas o números de ECHEQ reales. No hay información personal sensible.
