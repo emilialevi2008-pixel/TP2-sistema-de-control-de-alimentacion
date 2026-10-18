@@ -13,8 +13,8 @@ def calcular_receta(datos, productos):
     if not isinstance(nombre, str) or not nombre.strip() or len(nombre.strip()) > 120:
         raise ValueError('Nombre obligatorio de hasta 120 caracteres')
     porciones = numero(datos.get('porciones'), 'porciones')
-    if porciones <= 0:
-        raise ValueError('Las porciones deben ser positivas')
+    if not 0.01 <= porciones <= 10000:
+        raise ValueError('Las porciones deben estar entre 0.01 y 10000')
     ingredientes = datos.get('ingredientes')
     if not isinstance(ingredientes, list) or not ingredientes:
         raise ValueError('Se requiere al menos un ingrediente')

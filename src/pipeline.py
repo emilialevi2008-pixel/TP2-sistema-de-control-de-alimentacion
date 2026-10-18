@@ -87,7 +87,7 @@ def limpiar_datos(filas):
                 original = fila[campo]
                 comparable = '|'.join(valor) if campo == 'categorias' else valor
                 if type(original) is not type(comparable) or original != comparable:
-                    cambios[campo] = {'antes': original, 'despues': valor}
+                    cambios[campo] = {'antes': original, 'despues': list(valor) if isinstance(valor, tuple) else valor}
             faltantes = [n for n in NUTRIENTES if normalizada[n] is None]
             if cambios or faltantes:
                 incidencias.append({'fila': numero_fila, 'estado': 'modificada', 'codigo': producto.codigo, 'cambios': cambios, 'faltantes': faltantes, 'original': fila})
@@ -111,6 +111,9 @@ def buscar_producto(productos, codigo):
 
 
 def seleccionar(productos, codigos=None, categoria=None, texto='', tipo=None, max_energia=None, min_proteinas=None):
+    for valor in (max_energia, min_proteinas):
+        if valor is not None and (not math.isfinite(valor) or valor < 0):
+            raise ValueError('Los límites nutricionales deben ser finitos y no negativos')
     if codigos:
         if len(set(codigos)) != len(codigos):
             raise ValueError('No repetir códigos en una comparación')
@@ -137,10 +140,10 @@ def ejecutar(ruta, **filtros):
     filas = cargar(ruta)
     productos, incidencias = limpiar_datos(filas)
     seleccion = seleccionar(productos, **filtros)
-    tabla = comparar_etiquetas(seleccion)
+    tabla = comparar_etiquetas(seleccion) if seleccion else []
     rechazadas = sum(i['estado'] == 'rechazada' for i in incidencias)
     assert len(filas) == len(productos) + rechazadas, 'No se conserva el conteo de filas'
-    return {'inspeccion': {'filas': len(filas), 'columnas': sorted(CAMPOS), 'validas': len(productos), 'rechazadas': rechazadas, 'seleccionadas': len(seleccion)}, 'base': '100 g', 'unidades': {'energia': 'kcal', 'otros': 'g'}, 'tabla': tabla, 'incidencias': incidencias}
+    return {'inspeccion': {'filas': len(filas), 'columnas': sorted(CAMPOS), 'validas': len(productos), 'rechazadas': rechazadas, 'seleccionadas': len(seleccion)}, 'mensaje': 'Comparación generada' if tabla else 'Sin productos para los filtros indicados; consultar incidencias', 'base': '100 g', 'unidades': {'energia': 'kcal', 'otros': 'g'}, 'tabla': tabla, 'incidencias': incidencias}
 
 
 def guardar_resultado(resultado, directorio):
