@@ -6,8 +6,7 @@ Fuente: **simulación propia**, no extractos bancarios. Procedimiento completo e
 [`scripts/generar_datos.py`](../scripts/generar_datos.py). URL del procedimiento:
 https://github.com/emilialevi2008-pixel/TP2-sistema-de-control-de-alimentacion/blob/tp2-echeq/scripts/generar_datos.py
 
-Responsable del proyecto: cuenta `emilialevi2008-pixel`; generación e implementación
-asistidas por Codex. Fecha de generación: **2026-10-18**. No hubo consulta de datos
+Responsable del conjunto: **Emilia Agustina Levi** (`emilialevi2008-pixel`). Fecha de generación: **18/10/2026**. No hubo consulta de datos
 externos: la fecha de generación reemplaza una fecha de consulta de fuente remota.
 Condiciones de uso del conjunto sintético: **CC0 1.0**
 (https://creativecommons.org/publicdomain/zero/1.0/). No se atribuyen operaciones,
@@ -26,7 +25,7 @@ superan el mínimo orientativo de 50 observaciones y tres variables de la consig
 |---|---|---|
 | id_cheque | texto | ECH- seguido de 6 a 12 dígitos ASCII; ceros iniciales preservados |
 | importe | texto decimal, ARS | Valor monetario; hasta dos decimales, punto o coma decimal, sin miles |
-| fecha_pago | texto ISO | AAAA-MM-DD; el calendario se valida con datetime.date |
+| fecha_pago | texto de fecha | DD/MM/AAAA; también se admite ISO y serial Excel; se valida el calendario |
 | emisor | texto | Emisor/endosante ficticio; obligatorio, no criterio de coincidencia |
 | estado | texto | Estado de origen ficticio; obligatorio, no criterio de coincidencia |
 
@@ -53,7 +52,7 @@ y es prefijo estricto de uno o más IDs bancarios más largos. No hay fuzzy matc
 python scripts/generar_datos.py --salida data --semilla 20261018
 ```
 
-`random.Random` local, semilla fija y fecha base fija 2026-11-01; no depende del
+`random.Random` local, semilla fija y fecha base fija 01/11/2026 (solo para generar la muestra); no depende del
 reloj ni del estado global del generador. Probado con Python 3.12.14. La prueba
 `test_reproducibilidad_de_datos_y_analisis` regenera en una carpeta temporal y
 compara los cuatro archivos **byte a byte** con los versionados. Una semilla
@@ -87,14 +86,20 @@ Escenarios sobre las 120 identidades iniciales (índices Python desde 0):
 
 ## Limpieza y exclusiones
 
-No se eliminan filas sin dejar evidencia. Los importes inválidos quedan fuera de
-las sumas; los otros campos inválidos no impiden sumar un importe válido.
-Duplicados: se señalan **todas** sus ocurrencias, se bloquean para conciliación y
-se incluyen en el bruto si el importe es válido. Los IDs reconocibles de filas
-inválidas/duplicadas siguen siendo candidatos para evitar falsos prefijos únicos.
-La auditoría en resumen.json conserva fuente, fila, originales, cambios, valores
-normalizados, errores y motivos. Los faltantes no se convierten en cero; el total
-cero cuando no hay importes incluidos es la suma vacía, con exclusiones visibles.
+Cada ejecución exige elegir inicio y fin, en DD/MM/AAAA. No hay período por
+omisión. Solo se comparan/suman fechas válidas dentro de esos límites inclusivos.
+Las filas con fecha ilegible o fuera de la selección quedan registradas por fuente
+y ordinal en resumen.json. No se inventa una fecha para poder incluir un monto.
+Dentro de la selección, los importes inválidos quedan fuera de las sumas; los
+otros campos inválidos no impiden sumar un importe válido. Todas las ocurrencias
+de IDs duplicados se bloquean para conciliación, pero sus importes válidos entran
+en el bruto del período. Los datos originales no se sobrescriben.
+
+Las fechas normalizadas y de presentación usan DD/MM/AAAA. Solo los valores
+originales de la auditoría mantienen la entrada exacta. Se admite ISO sin ambigüedad
+y seriales Excel enteros de 1900 (predeterminado) o 1904 (opción por fuente). No se
+leen XLSX ni se adivina el sistema del libro. Las horas no nulas, seriales con
+fracción y el día inexistente de Excel 1900 se rechazan con motivo. Ver docs/reglas.md.
 
 ## Limitaciones y sesgos
 

@@ -2,10 +2,10 @@
 
 Referencia: `consigna_TP2.pdf` adjunto, nueve páginas completas. Su SHA-256 es
 `48936cb16630d9ae1e2f8ae863fbd4944d0738319dc4e623e530e9c6d91a7a5c`;
-coincide con el PDF revisado antes. Los sufijos (1)/(3) mencionados en los textos
-no corresponden al nombre efectivo del adjunto, pero la verificación directa del
-PDF sí fue realizada. El texto de ECHEQ recibido termina en sección 14 con
-`docs: definir problema y`; no se inventó contenido posterior.
+coincide con el PDF revisado antes. También se revisó el último texto adjunto:
+fechas argentinas/Excel, períodos libres, totales por período y README sencillo.
+Estas reglas actuales reemplazan el formato principal ISO y el análisis completo
+sin período de la versión anterior; no eliminan requisitos académicos del PDF.
 
 Estados: **verificado** = comprobación ejecutada; **documentado** = evidencia
 revisada en archivos; **externo pendiente** = no demostrable mediante ejecución.
@@ -26,13 +26,13 @@ La implementación completa no equivale a aprobación ni defensa académica.
 | 2. Sesgos, limitaciones y privacidad | data/README.md | Revisión de datos ficticios y exclusiones | Documentado; sin datos bancarios reales |
 | 3. Leer CSV y JSON de esquema definido | fuentes.py | test_csv_json_equivalentes_y_ids_textuales | Verificado |
 | 3. Inspeccionar y validar supuestos | validaciones.py; inspeccionar | test_campos_faltantes_y_obligatorios; test_errores_de_esquema_y_fuente | Verificado; inspección en resumen.json |
-| 3. Limpiar/transformar y registrar filas | normalizar_campos; validar_registro; auditoria | test_normalizacion_sin_mutar_y_auditoria; test_todas_invalidas_conservan_auditoria_y_reportes | Verificado; no eliminación silenciosa |
+| 3. Limpiar/transformar, filtrar período y registrar filas | normalizar_campos; validar_registro; auditoria | test_normalizacion_sin_mutar_y_auditoria; test_todas_invalidas_conservan_auditoria_y_reportes | Verificado; no eliminación silenciosa |
 | 3. Analizar y comunicar resultado útil | conciliar; resumir; reportes | test_integracion_csv_json_mixtos_y_cuatro_reportes_equivalentes | Verificado; detalle por cheque y montos |
 | 3. Una instrucción, repetibilidad | main.py; README | Cuatro combinaciones CLI y test_reproducibilidad_de_datos_y_analisis | Verificado; sin notebooks |
 | 4. Funciones diferenciadas | fuentes, validaciones, conciliacion, importes, reportes | Pruebas separadas por módulo | Verificado; no dependen del formato de origen |
 | 4. Clase significativa de dominio | ChequeElectronico | test_error_importe; test_error_importe_y_fecha_simultaneos | Verificado; métodos usados por motor |
 | 4. FuenteDatos abstracta y CSV/JSON concretas | fuentes.py | test_abstraccion y equivalencia | Verificado; cargar(ruta) común |
-| 4. Regex pertinente y límites explicados | PATRON_ID; PATRON_FECHA; README | test_identificador_invalido_y_cero_inicial; test_fecha_imposible_y_formato | Verificado; patrón sintético, calendario adicional |
+| 4. Regex pertinente y límites explicados | PATRON_ID; ARGENTINA/ISO en fechas.py; docs/reglas.md | test_identificador_invalido_y_cero_inicial; test_fecha_imposible_y_formato | Verificado; patrón sintético, calendario adicional |
 | 4. Supuestos y mensajes claros | validar_importe; validar_registro; CLI | test_importe_no_numerico_o_no_finito; test_cli_real_y_error_de_lectura | Verificado |
 | 5. Caso normal | tests/test_conciliacion.py | test_coincidencia_exacta | Verificado |
 | 5. Inválido o caso límite | tests/test_validaciones.py | Negativos, vacíos, formato, fecha imposible, campos ausentes | Verificado |
@@ -45,14 +45,18 @@ La implementación completa no equivale a aprobación ni defensa académica.
 | 6. .gitignore apropiado | .gitignore | git check-ignore de venv/cache/outputs/local/.env | Verificado; datos sintéticos pequeños sí versionados |
 | 6. Acceso docente durante evaluación | Configuración GitHub | No se conocen cuentas/visibilidad requerida por la cátedra | **Externo pendiente**, conceder acceso si privado |
 | 7. Estructura equivalente y requirements | src, tests, data, docs, requirements.txt | Inventario y ejecución desde raíz | Verificado; sin terceros |
-| 7. README: título/autor, problema/usuario/solución, funcionalidades/uso | README | Revisión contra lista de p. 3 del PDF | Documentado; cuenta autora identificada, nombre académico a completar |
+| 7. README: título/autor, problema/usuario/solución, funcionalidades/uso | README | Revisión contra lista de p. 3 del PDF | Documentado; autora identificada: Emilia Agustina Levi |
 | 7. README: fuente/licencia/unidad, instalación, comandos app/tests | README; data/README.md | pip/CLI/tests ejecutados; procedimientos exactos | Documentado y verificado |
 | 7. README: código, ejemplo, limpieza, interpretación/limitaciones | README; docs/ejemplo_resumen.json | Ejemplo generado por pipeline y reglas explícitas | Documentado y verificado |
-| 7. Versión evaluable y enlace | Etiqueta tp2-echeq-v1 y repositorio | git rev-parse y comprobación remota al publicar | Candidata identificada; no es entrega EVA |
+| 7. Versión evaluable y enlace | Etiqueta tp2-echeq-v2 y repositorio | git rev-parse y comprobación remota al publicar | Candidata identificada; no es entrega EVA |
 | 7. Entrega, hitos y fechas EVA | README | PDF remite a EVA, no publica fechas | **Externo pendiente** |
 | 7. Defensa individual y TP1 si aplica | docs/defensa.md | Guía de demo y preguntas preparada | **Externo pendiente**; no acreditada |
 
 ## Reglas funcionales y monetarias del texto ECHEQ
+
+Los brutos y la detección de duplicados se calculan dentro del período seleccionado.
+Los casos unitarios que prueban sumas de filas con fecha inválida prueban el módulo
+monetario aislado: el flujo completo no puede incluirlas sin ubicarlas en el período.
 
 | Requisito | Implementación | Prueba / evidencia |
 |---|---|---|
@@ -70,7 +74,7 @@ La implementación completa no equivale a aprobación ni defensa académica.
 | Varios prefijos compitiendo no se asignan por orden | propuestas agrupadas por fila banco | test_dos_prefijos_compiten_sin_asignacion_por_orden |
 | IDs textuales, fechas reales, importes válidos | validaciones.py | Tests de campos e importes/calendario |
 | Decimal, dos decimales, no float | validar_importe; importes.py; lector JSON | test_precision_decimal; test_json_numerico_decimal_sin_float |
-| Total de todos los importes válidos de cada archivo | calcular_total_bruto | test_total_banco_sistema_diferencia_y_absoluta |
+| Total de todos los importes válidos seleccionados de cada archivo | calcular_total_bruto | test_total_banco_sistema_diferencia_y_absoluta |
 | Duplicados incluidos y señalados en bruto | totales_brutos.duplicados_incluidos | test_duplicados_incluidos_en_bruto_no_en_conciliado |
 | Incluir importe válido aunque otro campo falle | Registro.importe independiente de cheque | test_fecha_o_id_invalidos_no_excluyen_importe_valido |
 | Excluir montos inválidos con motivos y conteos | registros_excluidos_sumas | test_importes_invalidos_excluidos_y_documentados |
@@ -120,18 +124,46 @@ Los nombres corresponden a métodos ejecutados mediante unittest, no a promesas.
 
 ## Evidencia de ejecución y balance
 
-Python 3.12.14: `python -m unittest discover -s tests -v` ejecutó **51 pruebas,
-51 aprobadas, 0 fallidas, 0 omitidas**. Los cuatro tipos de combinación CSV/JSON
+Ejemplo de muestra, período 01/11/2026–31/12/2026. Python 3.12.14: `python -m unittest discover -s tests -v` ejecutó **65 pruebas,
+65 aprobadas, 0 fallidas, 0 omitidas**. Los cuatro tipos de combinación CSV/JSON
 produjeron los cuatro reportes idénticos byte a byte. La regeneración en una
 carpeta temporal reprodujo los cuatro archivos originales.
 
 Muestra real de salida: 120 filas por fuente; 86 pares conciliados (81 exactos,
-5 abreviados); 15 pares con diferencias; 11 ausencias y 27 resultados para revisión
-(incluidos tres ambiguos). Los 139 resultados trazan las 240 filas exactamente
-una vez. Brutos banco/sistema: 50505628.82 / 50070182.54 ARS; diferencia 435446.28;
-importe conciliado: 40522469.11. Exclusiones monetarias: banco 1, sistema 3.
+5 abreviados); 15 pares con diferencias; 13 ausencias y 23 resultados para revisión
+(incluidos tres ambiguos). Los 137 resultados trazan las 238 filas seleccionadas exactamente
+una vez; las otras dos filas se identifican como fechas inválidas en el filtrado. Brutos banco/sistema: 50477968.91 / 50070182.54 ARS; diferencia 407786.37;
+importe conciliado: 40522469.11. Exclusiones monetarias dentro del período: banco 1, sistema 2. Además se
+excluye una fecha inválida por fuente antes de sumar.
 
 Los pasos técnicos 2–5 están comprobados y el alcance/documentación de 1 y 7
 están preparados. Git muestra avances reales del paso 6. La aprobación del tema,
-acceso docente, datos nominales de entrega, EVA y defensa siguen siendo externos:
+acceso docente, EVA y defensa siguen siendo externos:
 no se declaran cumplidos ni se presentan como defectos solucionables con código.
+
+## Ampliación actual: fechas y períodos libres
+
+| Requisito | Archivo / función | Prueba ejecutada / observación |
+|---|---|---|
+| Formato principal DD/MM/AAAA y lectura ISO | fechas.interpretar_fecha, mostrar_fecha | test_argentina_iso_y_medianoche_excel |
+| Día/mes explícito, sin suponer MM/DD | ARGENTINA, ISO | test_invalidas_ambiguas_y_horas_no_se_adivinan; 01/02 significa febrero |
+| Excel 1900/1904 y anomalía del serial 60 | interpretar_fecha; opciones --excel-banco/--excel-sistema | test_excel_1900_y_1904; test_excel_de_fuentes_con_sistemas_distintos |
+| No asignar fecha insegura ni descartar horas sin avisar | interpretar_fecha | test_invalidas_ambiguas_y_horas_no_se_adivinan |
+| Pedir inicio y fin o recibir ambas opciones | main | test_cli_solicita_periodo_y_no_lo_predetermina |
+| Ningún período fijo, ejecuciones independientes | PeriodoConciliacion; ejecutar | test_otro_periodo_no_reutiliza_fechas_anteriores |
+| Rechazar inicio posterior al fin/formato incompleto | PeriodoConciliacion; main | test_cli_periodo_invertido_incompleto_o_no_argentino |
+| Filtrar inclusive ambos límites y cruzar años | filtrar_periodo | test_limites_inclusivos_entre_anios_totales_y_ordinales |
+| Totales solo de filas con fecha válida dentro del período | ejecutar; resumir | test_fecha_invalida_no_se_suma_y_queda_identificada |
+| Conservar ordinales y registrar toda exclusión | filtrado y verificar_trazabilidad | test_conservacion_de_240_registros_y_conteos; test_limites_inclusivos_entre_anios_totales_y_ordinales |
+| Diferencias/ausencias con alcance del período | conciliar; pipeline | test_diferencias_y_ausencias_solo_en_periodo |
+| Selección vacía distinta de archivo vacío | pipeline, fuentes | test_un_dia_y_periodo_sin_resultados; test_archivos_vacios |
+| Período en los reportes y fechas de presentación argentinas | reportes.py | test_todos_los_reportes_identifican_periodo_y_fechas_argentinas |
+| Preservar formato original solo en auditoría | Registro; resumen.auditoria | test_todos_los_reportes_identifican_periodo_y_fechas_argentinas |
+| README sencillo con apartados obligatorios | README; data/README; docs/reglas | Revisión contra p. 3 del PDF, sin menciones a herramientas no exigidas |
+| Mantener clases, regex, Decimal, CSV/JSON y cuatro reportes | src; pruebas existentes | 65 pruebas sin fallos/omisiones; 35 casos previos mantenidos |
+
+Límite explícito: se interpretan fechas de Excel **exportadas a CSV/JSON**, no
+libros XLSX. No se probó la interfaz de Microsoft Excel. Una ausencia significa
+que no hay contraparte incluida en el período, sin afirmar que no exista fuera.
+Los originales técnicos pueden contener ISO o seriales; se conservan por la
+trazabilidad exigida por el PDF y están separados de las fechas normalizadas.

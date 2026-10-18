@@ -42,3 +42,15 @@ ECHEQ es un tema propio: la aprobación de la cátedra no está confirmada.
 Acceso docente, nombre académico de autoría, reglas sobre asistencia, fecha y
 entrega EVA y defensa individual requieren confirmación fuera del programa.
 No inventar aprobación, publicación ni pruebas realizadas.
+
+## Actualización de fechas y períodos (18/10/2026)
+
+El formato de presentación y de la muestra pasa a DD/MM/AAAA. Se sigue leyendo
+ISO y se interpretan seriales Excel con base explícita 1900/1904 por fuente.
+Cada ejecución recibe/pide inicio y fin; no tiene período predeterminado.
+Se filtra cada fuente por fecha_pago, con límites inclusivos, antes de conciliar
+y sumar. Las fechas ilegibles no se ubican por suposición: se registra la exclusión.
+La trazabilidad abarca filas seleccionadas más exclusiones; los totales son los
+del período. Se simplifica el README conservando los apartados académicos obligatorios
+y el detalle de diseño/validación en docs/reglas.md y la matriz. No se reescribe
+el historial existente ni se agregan funciones web o bancarias.

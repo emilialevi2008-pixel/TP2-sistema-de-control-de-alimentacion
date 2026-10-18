@@ -1,32 +1,37 @@
 {
-  "registros_banco": 120,
-  "registros_sistema": 120,
+  "periodo": {
+    "inicio": "01/11/2026",
+    "fin": "31/12/2026",
+    "limites_incluidos": true
+  },
+  "registros_banco": 119,
+  "registros_sistema": 119,
   "registros_validos": {
     "banco": 118,
     "sistema": 114
   },
   "registros_invalidos": {
-    "banco": 2,
-    "sistema": 6
+    "banco": 1,
+    "sistema": 5
   },
   "cheques_conciliados": 86,
   "cheques_con_diferencias": 15,
-  "cheques_sin_correspondencia": 11,
+  "cheques_sin_correspondencia": 13,
   "cheques_ambiguos": 3,
-  "pendientes_revision": 27,
-  "total_resultados": 139,
+  "pendientes_revision": 23,
+  "total_resultados": 137,
   "importes": {
-    "total_banco": "50505628.82",
+    "total_banco": "50477968.91",
     "total_sistema": "50070182.54",
-    "diferencia_banco_sistema": "435446.28",
-    "diferencia_absoluta": "435446.28",
+    "diferencia_banco_sistema": "407786.37",
+    "diferencia_absoluta": "407786.37",
     "importe_conciliado": "40522469.11",
     "importe_con_diferencias_banco": "5765714.38",
     "importe_con_diferencias_sistema": "5765965.63",
-    "registros_incluidos_banco": 119,
+    "registros_incluidos_banco": 118,
     "registros_excluidos_banco": 1,
     "registros_incluidos_sistema": 117,
-    "registros_excluidos_sistema": 3
+    "registros_excluidos_sistema": 2
   },
   "importes_por_grupo": {
     "conciliados": {
@@ -38,12 +43,46 @@
       "sistema": "5765965.63"
     },
     "sin_correspondencia": {
-      "banco": "2326704.69",
-      "sistema": "2464619.47"
+      "banco": "2506923.71",
+      "sistema": "2492279.38"
     },
     "pendientes_revision": {
-      "banco": "1890740.64",
-      "sistema": "1317128.33"
+      "banco": "1682861.71",
+      "sistema": "1289468.42"
+    }
+  },
+  "filtrado": {
+    "banco": {
+      "registros_leidos": 120,
+      "dentro_periodo": 119,
+      "fuera_periodo": 0,
+      "fecha_no_interpretable": 1,
+      "exclusiones": [
+        {
+          "fuente": "banco",
+          "fila": 111,
+          "id_cheque": "ECH-305985541621",
+          "fecha_original": "30/02/2026",
+          "tipo": "FECHA_INVALIDA",
+          "motivo": "Fecha inválida: day is out of range for month"
+        }
+      ]
+    },
+    "sistema": {
+      "registros_leidos": 120,
+      "dentro_periodo": 119,
+      "fuera_periodo": 0,
+      "fecha_no_interpretable": 1,
+      "exclusiones": [
+        {
+          "fuente": "sistema",
+          "fila": 113,
+          "id_cheque": "ECH-671317411553",
+          "fecha_original": "01/13/2026",
+          "tipo": "FECHA_INVALIDA",
+          "motivo": "Fecha inválida: month must be in 1..12"
+        }
+      ]
     }
   }
 }

@@ -1,6 +1,6 @@
 # Propuesta para aprobación: conciliador ECHEQ
 
-**Autora/titular:** cuenta emilialevi2008-pixel (nombre académico a completar).
+**Autora/titular:** Emilia Agustina Levi (cuenta emilialevi2008-pixel).
 **Materia:** Programación Orientada a Datos, TP2 individual, UCA.
 
 ## Problema y usuario
@@ -11,7 +11,8 @@ y explicar por qué no coincide el total de cada archivo.
 
 ## Solución y operaciones
 
-Aplicación pequeña de consola en Python, sin conexión bancaria, que lee dos
+Aplicación pequeña de consola en Python, sin conexión bancaria, que pide un
+período libre (DD/MM/AAAA, ambos días incluidos) y lee dos
 archivos CSV/JSON, valida y registra limpieza, concilia exactos/prefijos únicos,
 calcula importes exactos y genera cuatro reportes más resumen terminal.
 Los ambiguos/duplicados se conservan para revisión, sin adjudicación arbitraria.
@@ -19,7 +20,7 @@ Los ambiguos/duplicados se conservan para revisión, sin adjudicación arbitrari
 ## Datos y salida verificable
 
 120 registros sintéticos por fuente, cinco variables: id_cheque, importe (ARS),
-fecha_pago ISO, emisor y estado. Semilla 20261018; procedimiento versionado,
+fecha_pago (DD/MM/AAAA, ISO o Excel), emisor y estado. Semilla 20261018; procedimiento versionado,
 CC0 1.0; ninguna información sensible. Cada fila de origen conserva su ordinal.
 La salida permite demostrar coincidencias, múltiples errores, ausencias,
 precisión decimal y diferencia entre saldo bruto y monto conciliado.
