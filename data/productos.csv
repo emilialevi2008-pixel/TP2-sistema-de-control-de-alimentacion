@@ -1,0 +1,66 @@
+codigo,nombre,categorias,tipo,base_g,energia,unidad_energia,proteinas,carbohidratos,grasas,unidad_masa
+CIQ-25608,"Tabbouleh, prepacked",starters and dishes|mixed salads,alimento,100,179,kcal,4.88,23.7,6.7,g
+CIQ-25609,"Potato salad, piémontaise-style, prepacked",starters and dishes|mixed salads,alimento,100,130,kcal,4.5,8.87,8.3,g
+CIQ-25616,"Salad, vegetable, without dressing (average)",starters and dishes|mixed salads,alimento,100,29.9,kcal,0.94,3.07,0.7,g
+CIQ-25629,"Salad, veggie, bulgur and/or quinoa-based, with vegetables, prepacked",starters and dishes|mixed salads,alimento,100,168,kcal,3.79,17.4,8.3,g
+CIQ-26259,"Coleslaw, w sauce, prepacked",starters and dishes|mixed salads,alimento,100,105,kcal,0.94,5.78,8.1,g
+CIQ-25900,"Soup, lentils, prepacked, to be reheated",starters and dishes|soups,alimento,100,55,kcal,3.74,6.6,1.12,g
+CIQ-25901,"Soup, chicken and vegetables, prepacked, to be reheated",starters and dishes|soups,alimento,100,30.8,kcal,3.09,2.6,0.8,g
+CIQ-25903,"Soup, mixed vegetables, prepacked, to be reheated",starters and dishes|soups,alimento,100,39.4,kcal,0.76,5.05,1.56,g
+CIQ-25904,"Soup, fish and/or crustacean, prepacked, to be reheated",starters and dishes|soups,alimento,100,42.8,kcal,3.45,2.88,1.79,g
+CIQ-25905,"Soup, mixed vegetables, dehydrated and reconstituted",starters and dishes|soups,alimento,100,34.5,kcal,0.86,4.43,1.22,g
+CIQ-25907,"Soup, leek and potato, prepacked, to be reheated",starters and dishes|soups,alimento,100,37.1,kcal,0.79,4.46,1.51,g
+CIQ-25908,"Soup, chicken and vermicelli, prepacked, to be reheated",starters and dishes|soups,alimento,100,30.8,kcal,1.3,3.86,1,g
+CIQ-25909,"Broth, stock or bouillon, meat and vegetables, dehydrated and reconstituted",starters and dishes|soups,alimento,100,4.8,kcal,0.2,0.1,0.4,g
+CIQ-25910,"Soup, onions, prepacked, to be reheated",starters and dishes|soups,alimento,100,40.4,kcal,1.35,4.93,1.4,g
+CIQ-25912,"Soup, mushrooms, prepacked, to be reheated",starters and dishes|soups,alimento,100,48.2,kcal,0.81,4.09,3.07,g
+CIQ-25913,"Soup, carrots, prepacked, to be reheated",starters and dishes|soups,alimento,100,33.2,kcal,0.61,3.89,1.41,g
+CIQ-25914,"Soup, tomatoes, prepacked, to be reheated",starters and dishes|soups,alimento,100,38.7,kcal,0.74,6.27,0.99,g
+CIQ-25915,"Soup, chorba frik, w meat and frik",starters and dishes|soups,alimento,100,62.9,kcal,3.75,5.4,2.5,g
+CIQ-25916,"Soup, minestrone, prepacked, to be reheated",starters and dishes|soups,alimento,100,48.8,kcal,1.2,5.6,2,g
+CIQ-25917,"Soup, pistou (basil, garlic and olive oil), dehydrated and reconstituted",starters and dishes|soups,alimento,100,30.4,kcal,1.2,5.2,0.35,g
+CIQ-25919,"Soup, fish and/or crustacean, dehydrated and reconstituted",starters and dishes|soups,alimento,100,29,kcal,0.91,5.09,0.5,g
+CIQ-25923,"Soup, Asian-style with noodles, dehydrated and reconstituted",starters and dishes|soups,alimento,100,29.8,kcal,0.97,5.25,0.44,g
+CIQ-25924,"Soup, Moroccan, dehydrated and reconstituted",starters and dishes|soups,alimento,100,34.3,kcal,1.2,5.77,0.55,g
+CIQ-25925,"Soup, leek and potato, dehydrated and reconstituted",starters and dishes|soups,alimento,100,26.1,kcal,0.63,4.84,0.41,g
+CIQ-25928,"Soup, chicken and vegetables, dehydrated and reconstituted",starters and dishes|soups,alimento,100,27.3,kcal,0.99,4.58,0.44,g
+CIQ-25930,"Broth, stock or bouillon, beef, dehydrated and reconstituted",starters and dishes|soups,alimento,100,9.05,kcal,0.6,1.33,0.15,g
+CIQ-25932,"Soup, asparagus, dehydrated and reconstituted",starters and dishes|soups,alimento,100,35.3,kcal,0.6,5.14,1.31,g
+CIQ-25933,"Soup, tomatoes and vermicelli, prepacked, to be reheated",starters and dishes|soups,alimento,100,37.7,kcal,1.1,5.87,0.8,g
+CIQ-25934,"Soup, cereals and vegetables, dehydrated and reconstituted",starters and dishes|soups,alimento,100,47.8,kcal,1.4,6.8,1.4,g
+CIQ-25935,"Soup, tomatoes, dehydrated and reconstituted",starters and dishes|soups,alimento,100,36.2,kcal,0.76,5.79,0.97,g
+CIQ-25936,"Soup, mushrooms, dehydrated and reconstituted",starters and dishes|soups,alimento,100,37.8,kcal,0.65,4.37,1.79,g
+CIQ-25942,"Soup, onions, dehydrated and reconstituted",starters and dishes|soups,alimento,100,24,kcal,0.58,4.37,0.4,g
+CIQ-25945,"Soup, pumpkin, prepacked, to be reheated",starters and dishes|soups,alimento,100,35.9,kcal,0.67,4.13,1.56,g
+CIQ-25947,"Broth, stock or bouillon, poultry, dehydrated and reconstituted",starters and dishes|soups,alimento,100,5.58,kcal,0.6,0.5,0.13,g
+CIQ-25948,"Broth, stock or bouillon, vegetables, dehydrated and reconstituted",starters and dishes|soups,alimento,100,5.38,kcal,0.34,0.65,0.16,g
+CIQ-25949,"Soup, tomato and vermicelli, dehydrated and reconstituted",starters and dishes|soups,alimento,100,21.6,kcal,0.63,4.21,0.18,g
+CIQ-25950,"Soup, chicken and vermicelli, dehydrated and reconstituted",starters and dishes|soups,alimento,100,21.3,kcal,0.75,3.87,0.25,g
+CIQ-25953,"Soup, pistou (basil, garlic and olive oil), prepacked, to be reheated",starters and dishes|soups,alimento,100,31.9,kcal,2,4.1,0.5,g
+CIQ-25954,"Soup, pumpkin, dehydrated and reconstituted",starters and dishes|soups,alimento,100,38.3,kcal,0.79,5.61,1.24,g
+CIQ-25955,"Soup, Asian-style with noodles, prepacked, to be reheated",starters and dishes|soups,alimento,100,22.3,kcal,0.7,3.4,0.5,g
+CIQ-25956,"Soup, minestrone, dehydrated and reconstituted",starters and dishes|soups,alimento,100,31.3,kcal,1.14,5.53,0.34,g
+CIQ-25957,"Soup, watercress, dehydrated and reconstituted",starters and dishes|soups,alimento,100,25.1,kcal,0.42,3.95,0.8,g
+CIQ-25958,"Soup, watercress, prepacked, to be reheated",starters and dishes|soups,alimento,100,34,kcal,1,5.4,0.8,g
+CIQ-25962,"Soup, vegetables with cheese, prepacked, to be reheated",starters and dishes|soups,alimento,100,50.2,kcal,1.34,5.09,2.51,g
+CIQ-25963,"Soup, green vegetables, prepacked, to be reheated",starters and dishes|soups,alimento,100,33.4,kcal,1,3.84,1.32,g
+CIQ-25964,"Soup, green vegetables, dehydrated and reconstituted",starters and dishes|soups,alimento,100,34.8,kcal,0.72,5.31,1.07,g
+CIQ-25965,"Soup, split peas, prepacked, to be reheated",starters and dishes|soups,alimento,100,56.7,kcal,2.68,6.25,1.98,g
+CIQ-25967,"Soup, gazpacho, cold, prepacked",starters and dishes|soups,alimento,100,32.8,kcal,0.65,3.38,1.62,g
+CIQ-25968,"Soup, asparagus, prepacked, to be reheated",starters and dishes|soups,alimento,100,133,kcal,4.6,4.7,10.4,g
+CIQ-25969,Soup (average),starters and dishes|soups,alimento,100,37.4,kcal,1.27,4.5,1.37,g
+CIQ-8601,Caen-style tripe,starters and dishes|dishes,alimento,100,116,kcal,20.4,0.3,3.68,g
+CIQ-8602,"Caen-style tripe, prepacked",starters and dishes|dishes,alimento,100,112,kcal,18.4,0.7,3.62,g
+CIQ-8612,Provencal-type tripe (with tomato),starters and dishes|dishes,alimento,100,94.1,kcal,15.7,0.6,3.2,g
+CIQ-25001,Veal stew in white sauce,starters and dishes|dishes,alimento,100,113,kcal,15.4,3.1,4,g
+CIQ-25033,Burgundy-style beef stew,starters and dishes|dishes,alimento,100,84.6,kcal,8.93,4.17,3.3,g
+CIQ-25058,"Duck with sauce (green pepper sauce, hunter-style sauce,etc.) , prepacked",starters and dishes|dishes,alimento,100,145,kcal,9.55,10.2,7.3,g
+CIQ-25063,"Rabbit with mustard sauce, prepacked",starters and dishes|dishes,alimento,100,108,kcal,14.9,0.5,5,g
+CIQ-25121,Cockerel in red wine sauce,starters and dishes|dishes,alimento,100,133,kcal,13,4,7,g
+CIQ-25125,Veal olive or veal paupiette,starters and dishes|dishes,alimento,100,193,kcal,14.5,2.6,13.8,g
+CIQ-25126,Poultry paupiette,starters and dishes|dishes,alimento,100,164,kcal,23.9,8.8,3.4,g
+3017800251546,Dinkel Dampfgegart,,etiqueta,100,136,kcal,5.3,23,1.6,g
+3023260031062,Dès de fromage de brebis herbes de Provence,,etiqueta,100,288,kcal,13.7,0.9,25.5,g
+3175681213081,Tostadas crujientes de cereales y semillas,en:plant-based-foods-and-beverages|en:plant-based-foods|en:cereals-and-potatoes|en:breads|en:crispbreads,etiqueta,100,365,kcal,7.1,76,2.1,g
+3023290234839,La Laitière Yaourt au lait entier nature,en:dairies|en:fermented-foods|en:fermented-milk-products|en:yogurts|en:plain-yogurts,etiqueta,100,67,kcal,3.9,4.8,3.3,g
+3038351738607,P+ linguine 3kg /1,,etiqueta,100,361,kcal,12,72,2,g
