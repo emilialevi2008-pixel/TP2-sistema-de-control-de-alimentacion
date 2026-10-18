@@ -82,3 +82,28 @@ class PeriodoConciliacion:
 
     def describir(self):
         return {'inicio':mostrar_fecha(self.inicio),'fin':mostrar_fecha(self.fin),'limites_incluidos':True}
+
+
+def filtrar_periodo(filas,fuente,periodo,sistema_excel='1900'):
+    """Conservar ordinales y justificar toda exclusión sin imputar fechas."""
+    if sistema_excel not in ('1900','1904'):
+        raise ValueError('Sistema de fechas Excel debe ser 1900 o 1904')
+    elegidas,numeros,exclusiones = [],[],[]
+    for numero,fila in enumerate(filas,1):
+        original = fila.get('fecha_pago')
+        try:
+            fecha = interpretar_fecha(original,sistema_excel)
+        except ValueError as error:
+            exclusiones.append({'fuente':fuente,'fila':numero,'id_cheque':fila.get('id_cheque'),'fecha_original':original,
+                                'tipo':'FECHA_INVALIDA','motivo':str(error)})
+            continue
+        if periodo.contiene(fecha):
+            elegidas.append(fila)
+            numeros.append(numero)
+        else:
+            exclusiones.append({'fuente':fuente,'fila':numero,'fecha':mostrar_fecha(fecha),
+                                'tipo':'FUERA_PERIODO','motivo':'Fecha de pago fuera del período elegido'})
+    return elegidas,numeros,{'registros_leidos':len(filas),'dentro_periodo':len(elegidas),
+                            'fuera_periodo':sum(e['tipo']=='FUERA_PERIODO' for e in exclusiones),
+                            'fecha_no_interpretable':sum(e['tipo']=='FECHA_INVALIDA' for e in exclusiones),
+                            'exclusiones':exclusiones}

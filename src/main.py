@@ -11,6 +11,10 @@ def mostrar_resumen(resumen):
     print('='*48)
     print('     CONCILIACIÓN DE CHEQUES ECHEQ')
     print('='*48)
+    if 'periodo' in resumen:
+        p=resumen['periodo']
+        print(f"Período: {p['inicio']} al {p['fin']} (ambos incluidos)")
+    print(resumen.get('mensaje',''))
     print('\nRESUMEN DE IMPORTES (ARS)')
     for titulo,clave in [('Importe total banco','total_banco'),('Importe total sistema','total_sistema'),
                         ('Diferencia banco-sistema','diferencia_banco_sistema'),('Diferencia absoluta','diferencia_absoluta'),
@@ -24,6 +28,8 @@ def mostrar_resumen(resumen):
     for fuente in ('banco','sistema'):
         total=resumen['totales_brutos'][fuente]
         print(f"{fuente}: {total['incluidos']} importes incluidos; {total['excluidos']} excluidos; {len(total['duplicados_incluidos'])} filas duplicadas incluidas en bruto")
+    for fuente,datos in resumen.get('filtrado',{}).items():
+        print(f"{fuente}: {datos['fuera_periodo']} fuera del período; {datos['fecha_no_interpretable']} con fecha ilegible (ver resumen.json)")
     print('Un saldo global cero no demuestra conciliación individual.')
 
 
@@ -32,9 +38,21 @@ def main(argv=None):
     parser.add_argument('--banco',default='data/banco.csv')
     parser.add_argument('--sistema',default='data/sistema.csv')
     parser.add_argument('--salida',default='outputs')
+    parser.add_argument('--desde',help='Inicio del período DD/MM/AAAA, inclusive')
+    parser.add_argument('--hasta',help='Fin del período DD/MM/AAAA, inclusive')
+    parser.add_argument('--excel-banco',choices=['1900','1904'],default='1900')
+    parser.add_argument('--excel-sistema',choices=['1900','1904'],default='1900')
     args = parser.parse_args(argv)
     try:
-        resultados,resumen = ejecutar(args.banco,args.sistema)
+        if bool(args.desde) != bool(args.hasta):
+            raise ValueError('Indicar juntas --desde y --hasta, en DD/MM/AAAA')
+        if args.desde is None:
+            try:
+                args.desde = input('Fecha de inicio (DD/MM/AAAA): ').strip()
+                args.hasta = input('Fecha de finalización (DD/MM/AAAA): ').strip()
+            except EOFError:
+                raise ValueError('Faltan fechas: ingresar el período o usar --desde y --hasta') from None
+        resultados,resumen = ejecutar(args.banco,args.sistema,args.desde,args.hasta,args.excel_banco,args.excel_sistema)
         rutas = guardar_reportes(resultados,resumen,args.salida,(args.banco,args.sistema))
     except (ValueError,OSError,UnicodeError) as error:
         print(f'Error: {error}',file=sys.stderr)

@@ -16,13 +16,17 @@ from tests.ayudas import fila,flujo
 RAIZ=Path(__file__).resolve().parents[1]
 
 
+def ejecutar_muestra(banco,sistema):
+    return ejecutar(banco,sistema,'01/01/2026','31/12/2026')
+
+
 class PipelineTest(unittest.TestCase):
     def test_integracion_csv_json_mixtos_y_cuatro_reportes_equivalentes(self):
         with tempfile.TemporaryDirectory() as d:
             referencia=None
             for i,(b,s) in enumerate([('csv','csv'),('json','json'),('csv','json'),('json','csv')]):
                 with self.subTest(banco=b,sistema=s):
-                    r,resumen=ejecutar(RAIZ/f'data/banco.{b}',RAIZ/f'data/sistema.{s}')
+                    r,resumen=ejecutar_muestra(RAIZ/f'data/banco.{b}',RAIZ/f'data/sistema.{s}')
                     destino=Path(d)/str(i)
                     guardar_reportes(r,resumen,destino)
                     self.assertEqual({p.name for p in destino.iterdir()},set(NOMBRES))
@@ -31,24 +35,26 @@ class PipelineTest(unittest.TestCase):
                     self.assertEqual(archivos,referencia)
 
     def test_totales_y_estados_de_muestra_de_referencia(self):
-        _,s=ejecutar(RAIZ/'data/banco.csv',RAIZ/'data/sistema.csv')
-        self.assertEqual(s['importes']['total_banco'],Decimal('50505628.82'))
+        _,s=ejecutar_muestra(RAIZ/'data/banco.csv',RAIZ/'data/sistema.csv')
+        self.assertEqual(s['importes']['total_banco'],Decimal('50477968.91'))
         self.assertEqual(s['importes']['total_sistema'],Decimal('50070182.54'))
-        self.assertEqual(s['importes']['diferencia_banco_sistema'],Decimal('435446.28'))
+        self.assertEqual(s['importes']['diferencia_banco_sistema'],Decimal('407786.37'))
         self.assertEqual(s['importes']['importe_conciliado'],Decimal('40522469.11'))
         self.assertEqual(s['cheques_conciliados'],86)
         self.assertEqual(s['cheques_con_diferencias'],15)
-        self.assertEqual(s['cheques_sin_correspondencia'],11)
-        self.assertEqual(s['pendientes_revision'],27)
+        self.assertEqual(s['cheques_sin_correspondencia'],13)
+        self.assertEqual(s['pendientes_revision'],23)
         self.assertEqual(s['cheques_ambiguos'],3)
 
     def test_conservacion_de_240_registros_y_conteos(self):
-        r,s=ejecutar(RAIZ/'data/banco.csv',RAIZ/'data/sistema.csv')
+        r,s=ejecutar_muestra(RAIZ/'data/banco.csv',RAIZ/'data/sistema.csv')
         for fuente in ['banco','sistema']:
             filas=[getattr(x,fuente).fila for x in r if getattr(x,fuente) is not None]
-            self.assertEqual(sorted(filas),list(range(1,121)))
+            excluidas=[e['fila'] for e in s['filtrado'][fuente]['exclusiones']]
+            self.assertEqual(sorted(filas+excluidas),list(range(1,121)))
+            self.assertEqual(len(filas),119)
         pares=s['cheques_conciliados']+s['cheques_con_diferencias']
-        self.assertEqual(2*pares+s['cheques_sin_correspondencia']+s['pendientes_revision'],240)
+        self.assertEqual(2*pares+s['cheques_sin_correspondencia']+s['pendientes_revision']+2,240)
         self.assertEqual(pares+s['cheques_sin_correspondencia']+s['pendientes_revision'],s['total_resultados'])
 
     def test_reproducibilidad_de_datos_y_analisis(self):
@@ -56,8 +62,8 @@ class PipelineTest(unittest.TestCase):
             guardar(d)
             for nombre in ['banco.csv','sistema.csv','banco.json','sistema.json']:
                 self.assertEqual((Path(d)/nombre).read_bytes(),(RAIZ/'data'/nombre).read_bytes())
-            a=ejecutar(Path(d)/'banco.csv',Path(d)/'sistema.json')[1]
-            b=ejecutar(Path(d)/'banco.csv',Path(d)/'sistema.json')[1]
+            a=ejecutar_muestra(Path(d)/'banco.csv',Path(d)/'sistema.json')[1]
+            b=ejecutar_muestra(Path(d)/'banco.csv',Path(d)/'sistema.json')[1]
             self.assertEqual(a,b)
 
     def test_coherencia_resumen_detalle_errores_y_dos_errores(self):
@@ -122,12 +128,12 @@ class PipelineTest(unittest.TestCase):
 
     def test_cli_real_y_error_de_lectura(self):
         with tempfile.TemporaryDirectory() as d:
-            proceso=subprocess.run([sys.executable,'-m','src.main','--banco','data/banco.json','--sistema','data/sistema.csv','--salida',d],cwd=RAIZ,capture_output=True,text=True)
+            proceso=subprocess.run([sys.executable,'-m','src.main','--banco','data/banco.json','--sistema','data/sistema.csv','--salida',d,'--desde','01/01/2026','--hasta','31/12/2026'],cwd=RAIZ,capture_output=True,text=True)
             self.assertEqual(proceso.returncode,0,proceso.stderr)
-            self.assertIn('$435.446,28',proceso.stdout)
+            self.assertIn('$407.786,37',proceso.stdout)
             self.assertEqual({p.name for p in Path(d).iterdir()},set(NOMBRES))
             antes=(Path(d)/'resumen.json').read_bytes()
-            fallo=subprocess.run([sys.executable,'-m','src.main','--banco',str(Path(d)/'ausente.csv'),'--salida',d],cwd=RAIZ,capture_output=True,text=True)
+            fallo=subprocess.run([sys.executable,'-m','src.main','--banco',str(Path(d)/'ausente.csv'),'--salida',d,'--desde','01/01/2026','--hasta','31/12/2026'],cwd=RAIZ,capture_output=True,text=True)
             self.assertEqual(fallo.returncode,2)
             self.assertIn('Error:',fallo.stderr)
             self.assertEqual((Path(d)/'resumen.json').read_bytes(),antes)

@@ -12,7 +12,7 @@ NOMBRES = ('reporte_conciliacion.csv','cheques_con_errores.csv','resumen.json','
 COLUMNAS = ('id_banco','id_sistema','importe_banco','importe_sistema','diferencia_importe',
             'fecha_banco','fecha_sistema','estado','tipo_error','descripcion',
             'fila_origen_banco','fila_origen_sistema','grupo','candidatos_banco',
-            'importe_original_banco','importe_original_sistema')
+            'importe_original_banco','importe_original_sistema','periodo_inicio','periodo_fin')
 
 
 def decimal_json(valor):
@@ -56,7 +56,9 @@ def guardar_reportes(resultados,resumen,directorio,entradas=()):
     if any(Path(ruta).resolve() in objetivos for ruta in entradas):
         raise ValueError('La carpeta de salida sobrescribiría un archivo de entrada')
     destino.mkdir(parents=True,exist_ok=True)
-    filas = [detalle(r) for r in resultados]
+    periodo = resumen.get('periodo',{})
+    fechas_periodo = {'periodo_inicio':periodo.get('inicio',''),'periodo_fin':periodo.get('fin','')}
+    filas = [dict(detalle(r),**fechas_periodo) for r in resultados]
     # Preparar los cuatro archivos completos antes de reemplazar salidas anteriores.
     with tempfile.TemporaryDirectory(prefix='.echeq-',dir=destino) as temporal:
         temporal = Path(temporal)
@@ -64,6 +66,7 @@ def guardar_reportes(resultados,resumen,directorio,entradas=()):
         escribir_csv(temporal/NOMBRES[1],COLUMNAS,[f for f in filas if f['grupo']!='conciliados'])
         (temporal/NOMBRES[2]).write_text(json.dumps(resumen,default=decimal_json,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8')
         fila_importes = {k:format(v,'.2f') if isinstance(v,Decimal) else v for k,v in resumen['importes'].items()}
+        fila_importes.update(fechas_periodo)
         escribir_csv(temporal/NOMBRES[3],tuple(fila_importes),[fila_importes])
         for nombre in NOMBRES:
             os.replace(temporal/nombre,destino/nombre)

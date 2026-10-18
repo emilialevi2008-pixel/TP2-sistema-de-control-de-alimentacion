@@ -2,6 +2,7 @@
 from collections import Counter
 from .conciliacion import conciliar
 from .fuentes import cargar
+from .fechas import PeriodoConciliacion, filtrar_periodo
 from .importes import CERO, calcular_total_bruto
 from .validaciones import CAMPOS, limpiar_registros
 
@@ -60,8 +61,22 @@ def resumir(banco,sistema,resultados):
             'inspeccion':{k:inspeccionar(v) for k,v in fuentes.items()},'auditoria':auditoria}
 
 
-def ejecutar(ruta_banco,ruta_sistema):
-    banco = limpiar_registros(cargar(ruta_banco),'banco')
-    sistema = limpiar_registros(cargar(ruta_sistema),'sistema')
+def ejecutar(ruta_banco,ruta_sistema,inicio,fin,excel_banco='1900',excel_sistema='1900'):
+    periodo = PeriodoConciliacion.desde_texto(inicio,fin)
+    registros,filtrado = {},{}
+    for fuente,ruta,excel in [('banco',ruta_banco,excel_banco),('sistema',ruta_sistema,excel_sistema)]:
+        elegidas,numeros,informe = filtrar_periodo(cargar(ruta),fuente,periodo,excel)
+        registros[fuente] = limpiar_registros(elegidas,fuente,numeros,excel) if elegidas else []
+        filtrado[fuente] = informe
+    banco,sistema = registros['banco'],registros['sistema']
     resultados = conciliar(banco,sistema)
-    return resultados,resumir(banco,sistema,resultados)
+    for resultado in resultados:
+        if resultado.grupo=='sin_correspondencia':
+            resultado.descripcion += ' dentro del período elegido (solo fechas válidas)'
+    resumen = resumir(banco,sistema,resultados)
+    resumen['periodo'] = periodo.describir()
+    resumen['sistema_excel'] = {'banco':excel_banco,'sistema':excel_sistema}
+    resumen['filtrado'] = filtrado
+    resumen['incidencias_filtrado'] = dict(sorted(Counter(e['tipo'] for f in filtrado.values() for e in f['exclusiones']).items()))
+    resumen['mensaje'] = 'Conciliación del período completada' if banco or sistema else 'No hay registros con fecha válida dentro del período elegido'
+    return resultados,resumen
