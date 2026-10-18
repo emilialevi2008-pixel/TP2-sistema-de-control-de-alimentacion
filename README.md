@@ -1,8 +1,7 @@
 # Sistema de conciliación automática de cheques electrónicos (ECHEQ)
 
 **Autoría/titular:** `emilialevi2008-pixel`.
-Completar el nombre académico de la estudiante en
-la entrega formal. Versión candidata identificada por la etiqueta **`tp2-echeq-v1`**:
+
 
 ```sh
 git rev-parse 'tp2-echeq-v1^{commit}'
