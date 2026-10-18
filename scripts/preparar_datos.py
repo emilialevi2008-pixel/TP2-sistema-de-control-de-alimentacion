@@ -40,6 +40,7 @@ def preparar(ciqual, off, destino):
                 'etiqueta', '100', n.get('energy-kcal_100g', ''), 'kcal',
                 n.get('proteins_100g', ''), n.get('carbohydrates_100g', ''),
                 n.get('fat_100g', ''), 'g'])))
+    filas = [{k: str(v) for k, v in fila.items()} for fila in filas]
     destino = Path(destino)
     destino.mkdir(parents=True, exist_ok=True)
     with (destino / 'productos.csv').open('w', encoding='utf-8', newline='') as archivo:

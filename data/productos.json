@@ -785,11 +785,11 @@
     "categorias": "",
     "tipo": "etiqueta",
     "base_g": "100",
-    "energia": 136,
+    "energia": "136",
     "unidad_energia": "kcal",
-    "proteinas": 5.3,
-    "carbohidratos": 23,
-    "grasas": 1.6,
+    "proteinas": "5.3",
+    "carbohidratos": "23",
+    "grasas": "1.6",
     "unidad_masa": "g"
   },
   {
@@ -798,11 +798,11 @@
     "categorias": "",
     "tipo": "etiqueta",
     "base_g": "100",
-    "energia": 288,
+    "energia": "288",
     "unidad_energia": "kcal",
-    "proteinas": 13.7,
-    "carbohidratos": 0.9,
-    "grasas": 25.5,
+    "proteinas": "13.7",
+    "carbohidratos": "0.9",
+    "grasas": "25.5",
     "unidad_masa": "g"
   },
   {
@@ -811,11 +811,11 @@
     "categorias": "en:plant-based-foods-and-beverages|en:plant-based-foods|en:cereals-and-potatoes|en:breads|en:crispbreads",
     "tipo": "etiqueta",
     "base_g": "100",
-    "energia": 365,
+    "energia": "365",
     "unidad_energia": "kcal",
-    "proteinas": 7.1,
-    "carbohidratos": 76,
-    "grasas": 2.1,
+    "proteinas": "7.1",
+    "carbohidratos": "76",
+    "grasas": "2.1",
     "unidad_masa": "g"
   },
   {
@@ -824,11 +824,11 @@
     "categorias": "en:dairies|en:fermented-foods|en:fermented-milk-products|en:yogurts|en:plain-yogurts",
     "tipo": "etiqueta",
     "base_g": "100",
-    "energia": 67,
+    "energia": "67",
     "unidad_energia": "kcal",
-    "proteinas": 3.9,
-    "carbohidratos": 4.8,
-    "grasas": 3.3,
+    "proteinas": "3.9",
+    "carbohidratos": "4.8",
+    "grasas": "3.3",
     "unidad_masa": "g"
   },
   {
@@ -837,11 +837,11 @@
     "categorias": "",
     "tipo": "etiqueta",
     "base_g": "100",
-    "energia": 361,
+    "energia": "361",
     "unidad_energia": "kcal",
-    "proteinas": 12,
-    "carbohidratos": 72,
-    "grasas": 2,
+    "proteinas": "12",
+    "carbohidratos": "72",
+    "grasas": "2",
     "unidad_masa": "g"
   }
 ]
