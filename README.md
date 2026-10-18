@@ -128,6 +128,3 @@ estándar: CSV, JSON, Decimal, fechas, expresiones regulares, clases y unittest.
 Las [reglas y el diseño](docs/reglas.md) explican las funciones, clases y decisiones
 de limpieza. Los registros modificados o excluidos quedan identificados.
 
-La [matriz de cumplimiento](docs/cumplimiento_consigna.md) revisa los siete pasos
-de la consigna. La [guía de defensa](docs/defensa.md) propone una demostración.
-La versión se identifica con `git rev-parse 'tp2-echeq-v2^{commit}'`.
