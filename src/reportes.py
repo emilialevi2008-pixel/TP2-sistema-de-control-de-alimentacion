@@ -1,6 +1,7 @@
 """Cuatro reportes UTF-8: detalle, errores y dos resúmenes coherentes."""
 import csv
 from datetime import date
+from .fechas import mostrar_fecha
 from decimal import Decimal
 import json
 import os
@@ -18,7 +19,7 @@ def decimal_json(valor):
     if isinstance(valor,Decimal):
         return str(valor)
     if isinstance(valor,date):
-        return valor.isoformat()
+        return mostrar_fecha(valor)
     raise TypeError(f'Tipo no serializable: {type(valor).__name__}')
 
 

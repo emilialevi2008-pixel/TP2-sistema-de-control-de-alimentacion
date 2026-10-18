@@ -1,13 +1,12 @@
 """Validación independiente de campos, normalización y limpieza auditable."""
 from collections import Counter
-from datetime import date
 from decimal import Decimal, InvalidOperation
 import re
 from .modelos import ChequeElectronico, Registro
+from .fechas import interpretar_fecha, mostrar_fecha
 
 CAMPOS = ('id_cheque', 'importe', 'fecha_pago', 'emisor', 'estado')
 PATRON_ID = re.compile(r'ECH-[0-9]{6,12}')
-PATRON_FECHA = re.compile(r'[0-9]{4}-[0-9]{2}-[0-9]{2}')
 PATRON_IMPORTE = re.compile(r'[+-]?[0-9]+(?:[.,][0-9]{1,2})?')
 CENTAVO = Decimal('0.01')
 MAX_IMPORTE = Decimal('999999999999999.99')
@@ -45,7 +44,7 @@ def normalizar_campos(fila):
     return resultado
 
 
-def validar_registro(fila, fuente, numero):
+def validar_registro(fila, fuente, numero, sistema_excel='1900'):
     normalizado = normalizar_campos(fila)
     errores, motivos = [], []
     def error(tipo, mensaje):
@@ -72,20 +71,18 @@ def validar_registro(fila, fuente, numero):
     texto_fecha = normalizado.get('fecha_pago')
     fecha = None
     try:
-        if not isinstance(texto_fecha,str) or not PATRON_FECHA.fullmatch(texto_fecha):
-            raise ValueError('formato')
-        fecha = date.fromisoformat(texto_fecha)
-    except ValueError:
-        error('FECHA_INVALIDA',f'Fecha de pago inválida: {texto_fecha!r}; usar AAAA-MM-DD y una fecha real')
+        fecha = interpretar_fecha(texto_fecha,sistema_excel)
+    except ValueError as exc:
+        error('FECHA_INVALIDA',str(exc))
     for campo in ('emisor','estado'):
         if not isinstance(normalizado.get(campo),str) or not normalizado[campo]:
             error('CAMPO_OBLIGATORIO',f'{campo}: texto obligatorio faltante o inválido')
     cheque = None
     if not errores:
         cheque = ChequeElectronico(codigo,importe,fecha,normalizado['emisor'],normalizado['estado'])
-    # La representación canónica usa fecha ISO e importe con dos decimales.
+    # La representación visible usa día/mes/año; la comparación usa date.
     if fecha is not None:
-        normalizado['fecha_pago'] = fecha.isoformat()
+        normalizado['fecha_pago'] = mostrar_fecha(fecha)
     cambios = {}
     for campo in CAMPOS:
         antes, despues = fila.get(campo), normalizado.get(campo)
@@ -94,16 +91,20 @@ def validar_registro(fila, fuente, numero):
     return Registro(fuente,numero,dict(fila),normalizado,errores,motivos,cheque,importe,exclusion,cambios=cambios)
 
 
-def limpiar_registros(filas, fuente):
+def limpiar_registros(filas, fuente, filas_origen=None, sistema_excel='1900'):
     if fuente not in ('banco','sistema'):
         raise ValueError('Fuente debe ser banco o sistema')
     if not filas:
         raise ValueError(f'{fuente}: no hay registros')
+    if filas_origen is None:
+        filas_origen = list(range(1,len(filas)+1))
+    if len(filas_origen) != len(filas) or len(set(filas_origen)) != len(filas):
+        raise ValueError('La numeración de origen no coincide con las filas')
     registros = []
-    for numero, fila in enumerate(filas,1):
+    for numero, fila in zip(filas_origen,filas):
         if not isinstance(fila,dict):
             raise ValueError(f'{fuente}, fila {numero}: se esperaba un objeto')
-        registros.append(validar_registro(fila,fuente,numero))
+        registros.append(validar_registro(fila,fuente,numero,sistema_excel))
     frecuencias = Counter(r.codigo for r in registros if r.codigo is not None)
     for registro in registros:
         registro.duplicado = registro.codigo is not None and frecuencias[registro.codigo] > 1

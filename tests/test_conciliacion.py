@@ -34,8 +34,8 @@ class ConciliacionTest(unittest.TestCase):
     def test_error_fecha(self):
         r,_=flujo([fila()],[fila(fecha='2026-11-20')])
         self.assertEqual(r[0].estado,'ERROR_FECHA')
-        self.assertIn('2026-11-15',r[0].descripcion)
-        self.assertIn('2026-11-20',r[0].descripcion)
+        self.assertIn('15/11/2026',r[0].descripcion)
+        self.assertIn('20/11/2026',r[0].descripcion)
 
     def test_error_importe_y_fecha_simultaneos(self):
         r,s=flujo([fila()],[fila(importe='120',fecha='2026-11-20')])

@@ -2,6 +2,7 @@
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from .importes import formato_ars
+from .fechas import mostrar_fecha
 from .modelos import Registro
 
 
@@ -34,7 +35,7 @@ def emparejar(banco, sistema, abreviado=False):
         otro = 'sistema' if delta > 0 else 'banco'
         descripciones.append(f'El importe del {quien} supera al del {otro} en {formato_ars(abs(delta))}')
     if 'ERROR_FECHA' in errores:
-        descripciones.append(f'La fecha bancaria es {banco.cheque.fecha_pago} y la contable es {sistema.cheque.fecha_pago}')
+        descripciones.append(f'La fecha bancaria es {mostrar_fecha(banco.cheque.fecha_pago)} y la contable es {mostrar_fecha(sistema.cheque.fecha_pago)}')
     if errores:
         estado = errores[0] if len(errores)==1 else 'CON_DIFERENCIAS'
         if abreviado:
