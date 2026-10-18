@@ -30,5 +30,4 @@ precisión decimal y diferencia entre saldo bruto y monto conciliado.
 Se cubren los siete pasos: problema, procedencia, flujo, funciones/clases/regex,
 pruebas ejecutables, Git y documentación/entrega. No habrá web, GUI, BD, IA,
 autenticación ni edición manual. Es tema propio: se solicita su evaluación por
-la cátedra. **No hay evidencia de aprobación todavía.**
-Las fechas, hitos y medio de entrega se consultan en EVA; no están en el PDF.
+la cátedra. 
