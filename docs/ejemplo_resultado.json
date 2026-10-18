@@ -1,0 +1,55 @@
+{
+  "base": "100 g",
+  "unidades": {
+    "energia": "kcal",
+    "otros": "g"
+  },
+  "tabla": [
+    {
+      "codigo": "3023290234839",
+      "nombre": "La Laitière Yaourt au lait entier nature",
+      "categorias": [
+        "en:dairies",
+        "en:fermented-foods",
+        "en:fermented-milk-products",
+        "en:plain-yogurts",
+        "en:yogurts"
+      ],
+      "tipo": "etiqueta",
+      "porcion_g": 100,
+      "energia": 67.0,
+      "proteinas": 3.9,
+      "carbohidratos": 4.8,
+      "grasas": 3.3,
+      "diferencia_absoluta_vs_primero": {
+        "energia": 0.0,
+        "proteinas": 0.0,
+        "carbohidratos": 0.0,
+        "grasas": 0.0
+      }
+    },
+    {
+      "codigo": "3175681213081",
+      "nombre": "Tostadas crujientes de cereales y semillas",
+      "categorias": [
+        "en:breads",
+        "en:cereals-and-potatoes",
+        "en:crispbreads",
+        "en:plant-based-foods",
+        "en:plant-based-foods-and-beverages"
+      ],
+      "tipo": "etiqueta",
+      "porcion_g": 100,
+      "energia": 365.0,
+      "proteinas": 7.1,
+      "carbohidratos": 76.0,
+      "grasas": 2.1,
+      "diferencia_absoluta_vs_primero": {
+        "energia": 298.0,
+        "proteinas": 3.2,
+        "carbohidratos": 71.2,
+        "grasas": 1.2
+      }
+    }
+  ]
+}

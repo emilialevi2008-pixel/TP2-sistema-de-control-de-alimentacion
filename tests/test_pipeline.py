@@ -157,9 +157,6 @@ class PipelineTest(unittest.TestCase):
             with self.assertRaises(ValueError): a.guardar(datos,p,999)
 
 
-if __name__=='__main__': unittest.main()
-
-
 class SinResultadosTest(unittest.TestCase):
     def test_sin_coincidencias_conserva_auditoria(self):
         r=ejecutar(RAIZ/'data/productos.csv',categoria='no existe')
@@ -181,3 +178,7 @@ class SinResultadosTest(unittest.TestCase):
         for limite in [float('nan'),float('inf'),-1]:
             with self.subTest(limite=limite), self.assertRaises(ValueError):
                 seleccionar(p,max_energia=limite)
+
+
+if __name__ == '__main__':
+    unittest.main()
