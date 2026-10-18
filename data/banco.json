@@ -1,0 +1,842 @@
+[
+  {
+    "id_cheque": "ECH-461640077784",
+    "importe": "998329.38",
+    "fecha_pago": "2026-11-01",
+    "emisor": "Emisor ficticio 001",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-172073620626",
+    "importe": "40321.48",
+    "fecha_pago": "2026-11-02",
+    "emisor": "Emisor ficticio 002",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-606219972768",
+    "importe": "399772.67",
+    "fecha_pago": "2026-11-03",
+    "emisor": "Emisor ficticio 003",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-380343868702",
+    "importe": "588482.22",
+    "fecha_pago": "2026-11-04",
+    "emisor": "Emisor ficticio 004",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-660663643278",
+    "importe": "37943.11",
+    "fecha_pago": "2026-11-05",
+    "emisor": "Emisor ficticio 005",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-155502339740",
+    "importe": "778101.56",
+    "fecha_pago": "2026-11-06",
+    "emisor": "Emisor ficticio 006",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-240864831371",
+    "importe": "591987.70",
+    "fecha_pago": "2026-11-07",
+    "emisor": "Emisor ficticio 007",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-182080782310",
+    "importe": "885524.06",
+    "fecha_pago": "2026-11-08",
+    "emisor": "Emisor ficticio 008",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-344503309982",
+    "importe": "867646.12",
+    "fecha_pago": "2026-11-09",
+    "emisor": "Emisor ficticio 009",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-335444319506",
+    "importe": "14652.08",
+    "fecha_pago": "2026-11-10",
+    "emisor": "Emisor ficticio 010",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-170872794043",
+    "importe": "193147.62",
+    "fecha_pago": "2026-11-11",
+    "emisor": "Emisor ficticio 011",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-102083839650",
+    "importe": "986223.36",
+    "fecha_pago": "2026-11-12",
+    "emisor": "Emisor ficticio 012",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-185131743899",
+    "importe": "722876.90",
+    "fecha_pago": "2026-11-13",
+    "emisor": "Emisor ficticio 013",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-214058722673",
+    "importe": "611766.72",
+    "fecha_pago": "2026-11-14",
+    "emisor": "Emisor ficticio 014",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-287642712015",
+    "importe": "463454.35",
+    "fecha_pago": "2026-11-15",
+    "emisor": "Emisor ficticio 015",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-202158244140",
+    "importe": "213182.39",
+    "fecha_pago": "2026-11-16",
+    "emisor": "Emisor ficticio 016",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-146912645823",
+    "importe": "543788.47",
+    "fecha_pago": "2026-11-17",
+    "emisor": "Emisor ficticio 017",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-469505532761",
+    "importe": "21374.22",
+    "fecha_pago": "2026-11-18",
+    "emisor": "Emisor ficticio 018",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-227615352471",
+    "importe": "213886.70",
+    "fecha_pago": "2026-11-19",
+    "emisor": "Emisor ficticio 019",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-425997829139",
+    "importe": "385654.40",
+    "fecha_pago": "2026-11-20",
+    "emisor": "Emisor ficticio 020",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-186148060685",
+    "importe": "52599.96",
+    "fecha_pago": "2026-11-21",
+    "emisor": "Emisor ficticio 021",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-668910011801",
+    "importe": "605981.47",
+    "fecha_pago": "2026-11-22",
+    "emisor": "Emisor ficticio 022",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-638904793683",
+    "importe": "371334.31",
+    "fecha_pago": "2026-11-23",
+    "emisor": "Emisor ficticio 023",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-668785383419",
+    "importe": "515002.28",
+    "fecha_pago": "2026-11-24",
+    "emisor": "Emisor ficticio 024",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-130913463312",
+    "importe": "82547.59",
+    "fecha_pago": "2026-11-25",
+    "emisor": "Emisor ficticio 025",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-649529978713",
+    "importe": "929825.70",
+    "fecha_pago": "2026-11-26",
+    "emisor": "Emisor ficticio 026",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-322591040586",
+    "importe": "998675.77",
+    "fecha_pago": "2026-11-27",
+    "emisor": "Emisor ficticio 027",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-125704929943",
+    "importe": "512424.08",
+    "fecha_pago": "2026-11-28",
+    "emisor": "Emisor ficticio 028",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-676100176977",
+    "importe": "410023.93",
+    "fecha_pago": "2026-11-29",
+    "emisor": "Emisor ficticio 029",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-435514394525",
+    "importe": "125494.99",
+    "fecha_pago": "2026-11-30",
+    "emisor": "Emisor ficticio 030",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-139517463057",
+    "importe": "550588.48",
+    "fecha_pago": "2026-12-01",
+    "emisor": "Emisor ficticio 031",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-112431691743",
+    "importe": "414133.25",
+    "fecha_pago": "2026-12-02",
+    "emisor": "Emisor ficticio 032",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-509629320062",
+    "importe": "361073.01",
+    "fecha_pago": "2026-12-03",
+    "emisor": "Emisor ficticio 033",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-592647868458",
+    "importe": "631394.56",
+    "fecha_pago": "2026-12-04",
+    "emisor": "Emisor ficticio 034",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-184134151547",
+    "importe": "827365.92",
+    "fecha_pago": "2026-12-05",
+    "emisor": "Emisor ficticio 035",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-306805141571",
+    "importe": "3506.16",
+    "fecha_pago": "2026-12-06",
+    "emisor": "Emisor ficticio 036",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-675868808679",
+    "importe": "970948.68",
+    "fecha_pago": "2026-12-07",
+    "emisor": "Emisor ficticio 037",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-339175119715",
+    "importe": "396678.88",
+    "fecha_pago": "2026-12-08",
+    "emisor": "Emisor ficticio 038",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-660107212067",
+    "importe": "202708.91",
+    "fecha_pago": "2026-12-09",
+    "emisor": "Emisor ficticio 039",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-294989350718",
+    "importe": "731363.48",
+    "fecha_pago": "2026-12-10",
+    "emisor": "Emisor ficticio 040",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-600779149699",
+    "importe": "353903.10",
+    "fecha_pago": "2026-12-11",
+    "emisor": "Emisor ficticio 041",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-308073076678",
+    "importe": "454893.82",
+    "fecha_pago": "2026-12-12",
+    "emisor": "Emisor ficticio 042",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-617028589802",
+    "importe": "193119.50",
+    "fecha_pago": "2026-12-13",
+    "emisor": "Emisor ficticio 043",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-182979796329",
+    "importe": "272771.21",
+    "fecha_pago": "2026-12-14",
+    "emisor": "Emisor ficticio 044",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-353496247897",
+    "importe": "548800.04",
+    "fecha_pago": "2026-12-15",
+    "emisor": "Emisor ficticio 045",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-361600785005",
+    "importe": "839544.29",
+    "fecha_pago": "2026-12-16",
+    "emisor": "Emisor ficticio 046",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-662821993349",
+    "importe": "714806.98",
+    "fecha_pago": "2026-12-17",
+    "emisor": "Emisor ficticio 047",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-454566840285",
+    "importe": "299484.65",
+    "fecha_pago": "2026-12-18",
+    "emisor": "Emisor ficticio 048",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-249149396664",
+    "importe": "510184.42",
+    "fecha_pago": "2026-12-19",
+    "emisor": "Emisor ficticio 049",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-400439518850",
+    "importe": "766241.60",
+    "fecha_pago": "2026-12-20",
+    "emisor": "Emisor ficticio 050",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-525176457118",
+    "importe": "856285.10",
+    "fecha_pago": "2026-12-21",
+    "emisor": "Emisor ficticio 051",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-645654701172",
+    "importe": "201608.63",
+    "fecha_pago": "2026-12-22",
+    "emisor": "Emisor ficticio 052",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-691721716674",
+    "importe": "813786.86",
+    "fecha_pago": "2026-12-23",
+    "emisor": "Emisor ficticio 053",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-685816851713",
+    "importe": "587697.73",
+    "fecha_pago": "2026-12-24",
+    "emisor": "Emisor ficticio 054",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-549903657526",
+    "importe": "281153.22",
+    "fecha_pago": "2026-12-25",
+    "emisor": "Emisor ficticio 055",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-655673924139",
+    "importe": "95848.97",
+    "fecha_pago": "2026-12-26",
+    "emisor": "Emisor ficticio 056",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-356916174943",
+    "importe": "668828.58",
+    "fecha_pago": "2026-12-27",
+    "emisor": "Emisor ficticio 057",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-485655848491",
+    "importe": "836802.88",
+    "fecha_pago": "2026-12-28",
+    "emisor": "Emisor ficticio 058",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-346730005280",
+    "importe": "752945.14",
+    "fecha_pago": "2026-12-29",
+    "emisor": "Emisor ficticio 059",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-250989037256",
+    "importe": "510902.21",
+    "fecha_pago": "2026-12-30",
+    "emisor": "Emisor ficticio 060",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-568593015992",
+    "importe": "819394.54",
+    "fecha_pago": "2026-11-01",
+    "emisor": "Emisor ficticio 061",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-259784039450",
+    "importe": "302299.99",
+    "fecha_pago": "2026-11-02",
+    "emisor": "Emisor ficticio 062",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-138157725049",
+    "importe": "636166.18",
+    "fecha_pago": "2026-11-03",
+    "emisor": "Emisor ficticio 063",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-536868848008",
+    "importe": "563992.85",
+    "fecha_pago": "2026-11-04",
+    "emisor": "Emisor ficticio 064",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-401357498291",
+    "importe": "383120.41",
+    "fecha_pago": "2026-11-05",
+    "emisor": "Emisor ficticio 065",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-377498078842",
+    "importe": "196585.62",
+    "fecha_pago": "2026-11-06",
+    "emisor": "Emisor ficticio 066",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-519269876665",
+    "importe": "587149.11",
+    "fecha_pago": "2026-11-07",
+    "emisor": "Emisor ficticio 067",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-517812717893",
+    "importe": "672984.83",
+    "fecha_pago": "2026-11-08",
+    "emisor": "Emisor ficticio 068",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-523385727854",
+    "importe": "250772.20",
+    "fecha_pago": "2026-11-09",
+    "emisor": "Emisor ficticio 069",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-322262392044",
+    "importe": "314080.52",
+    "fecha_pago": "2026-11-10",
+    "emisor": "Emisor ficticio 070",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-425474258884",
+    "importe": "599247.38",
+    "fecha_pago": "2026-11-11",
+    "emisor": "Emisor ficticio 071",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-679807992869",
+    "importe": "438763.45",
+    "fecha_pago": "2026-11-12",
+    "emisor": "Emisor ficticio 072",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-159182763677",
+    "importe": "489478.32",
+    "fecha_pago": "2026-11-13",
+    "emisor": "Emisor ficticio 073",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-602463875345",
+    "importe": "399123.57",
+    "fecha_pago": "2026-11-14",
+    "emisor": "Emisor ficticio 074",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-322605885229",
+    "importe": "317236.81",
+    "fecha_pago": "2026-11-15",
+    "emisor": "Emisor ficticio 075",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-353944758839",
+    "importe": "55076.17",
+    "fecha_pago": "2026-11-16",
+    "emisor": "Emisor ficticio 076",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-157531420344",
+    "importe": "24332.65",
+    "fecha_pago": "2026-11-17",
+    "emisor": "Emisor ficticio 077",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-397459144767",
+    "importe": "554306.08",
+    "fecha_pago": "2026-11-18",
+    "emisor": "Emisor ficticio 078",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-436357383624",
+    "importe": "516183.60",
+    "fecha_pago": "2026-11-19",
+    "emisor": "Emisor ficticio 079",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-166351869245",
+    "importe": "173720.16",
+    "fecha_pago": "2026-11-20",
+    "emisor": "Emisor ficticio 080",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-132390893522",
+    "importe": "529427.54",
+    "fecha_pago": "2026-11-21",
+    "emisor": "Emisor ficticio 081",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-259869364220",
+    "importe": "627643.29",
+    "fecha_pago": "2026-11-22",
+    "emisor": "Emisor ficticio 082",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-104668988869",
+    "importe": "250968.44",
+    "fecha_pago": "2026-11-23",
+    "emisor": "Emisor ficticio 083",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-673822923146",
+    "importe": "361624.30",
+    "fecha_pago": "2026-11-24",
+    "emisor": "Emisor ficticio 084",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-383362002461",
+    "importe": "481601.13",
+    "fecha_pago": "2026-11-25",
+    "emisor": "Emisor ficticio 085",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-203642716670",
+    "importe": "684064.09",
+    "fecha_pago": "2026-11-26",
+    "emisor": "Emisor ficticio 086",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-536363417598",
+    "importe": "708755.05",
+    "fecha_pago": "2026-11-27",
+    "emisor": "Emisor ficticio 087",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-336883489381",
+    "importe": "3193.32",
+    "fecha_pago": "2026-11-28",
+    "emisor": "Emisor ficticio 088",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-688228647605",
+    "importe": "669340.31",
+    "fecha_pago": "2026-11-29",
+    "emisor": "Emisor ficticio 089",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-249848026027",
+    "importe": "279852.61",
+    "fecha_pago": "2026-11-30",
+    "emisor": "Emisor ficticio 090",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-124199389869",
+    "importe": "288100.23",
+    "fecha_pago": "2026-12-01",
+    "emisor": "Emisor ficticio 091",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-213583208829",
+    "importe": "195156.44",
+    "fecha_pago": "2026-12-02",
+    "emisor": "Emisor ficticio 092",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-635273289698",
+    "importe": "328669.21",
+    "fecha_pago": "2026-12-03",
+    "emisor": "Emisor ficticio 093",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-233318631119",
+    "importe": "340976.81",
+    "fecha_pago": "2026-12-04",
+    "emisor": "Emisor ficticio 094",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-653628296225",
+    "importe": "16341.61",
+    "fecha_pago": "2026-12-05",
+    "emisor": "Emisor ficticio 095",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-505908073927",
+    "importe": "680327.72",
+    "fecha_pago": "2026-12-11",
+    "emisor": "Emisor ficticio 101",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-211492012669",
+    "importe": "843213.18",
+    "fecha_pago": "2026-12-12",
+    "emisor": "Emisor ficticio 102",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-583845559464",
+    "importe": "33805.41",
+    "fecha_pago": "2026-12-13",
+    "emisor": "Emisor ficticio 103",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-636370632584",
+    "importe": "248524.00",
+    "fecha_pago": "2026-12-14",
+    "emisor": "Emisor ficticio 104",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-283642811221",
+    "importe": "423482.40",
+    "fecha_pago": "2026-12-15",
+    "emisor": "Emisor ficticio 105",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-379160457267",
+    "importe": "443082.23",
+    "fecha_pago": "2026-12-16",
+    "emisor": "Emisor ficticio 106",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-418439468560",
+    "importe": "718132.43",
+    "fecha_pago": "2026-12-17",
+    "emisor": "Emisor ficticio 107",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-163729298269",
+    "importe": "431920.26",
+    "fecha_pago": "2026-12-18",
+    "emisor": "Emisor ficticio 108",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-302553444885",
+    "importe": "295761.59",
+    "fecha_pago": "2026-12-19",
+    "emisor": "Emisor ficticio 109",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-203104125811",
+    "importe": "526911.96",
+    "fecha_pago": "2026-12-20",
+    "emisor": "Emisor ficticio 110",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-524534370492",
+    "importe": "34717.00",
+    "fecha_pago": "2026-12-21",
+    "emisor": "Emisor ficticio 111",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-146935633936",
+    "importe": "14237.93",
+    "fecha_pago": "2026-12-22",
+    "emisor": "Emisor ficticio 112",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-392761571019",
+    "importe": "-100.00",
+    "fecha_pago": "2026-12-23",
+    "emisor": "Emisor ficticio 113",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-684769642989",
+    "importe": "151722.52",
+    "fecha_pago": "2026-12-24",
+    "emisor": "Emisor ficticio 114",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-589084061345",
+    "importe": "323145.06",
+    "fecha_pago": "2026-12-25",
+    "emisor": "Emisor ficticio 115",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-305985541621",
+    "importe": "27659.91",
+    "fecha_pago": "2026-02-30",
+    "emisor": "Emisor ficticio 116",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-217685371249",
+    "importe": "97351.98",
+    "fecha_pago": "2026-12-27",
+    "emisor": "Emisor ficticio 117",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-671317411553",
+    "importe": "180219.02",
+    "fecha_pago": "2026-12-28",
+    "emisor": "Emisor ficticio 118",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-507944759101",
+    "importe": "765921.87",
+    "fecha_pago": "2026-12-29",
+    "emisor": "Emisor ficticio 119",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-113806405637",
+    "importe": "354649.28",
+    "fecha_pago": "2026-12-30",
+    "emisor": "Emisor ficticio 120",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-524534370492",
+    "importe": "34717.00",
+    "fecha_pago": "2026-12-21",
+    "emisor": "Emisor ficticio 111",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-777777000001",
+    "importe": "1250.35",
+    "fecha_pago": "2026-12-15",
+    "emisor": "Emisor ficticio adicional",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-777777000002",
+    "importe": "1250.35",
+    "fecha_pago": "2026-12-15",
+    "emisor": "Emisor ficticio adicional",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-888888123456",
+    "importe": "1250.35",
+    "fecha_pago": "2026-12-15",
+    "emisor": "Emisor ficticio adicional",
+    "estado": "EMITIDO"
+  },
+  {
+    "id_cheque": "ECH-000000000001",
+    "importe": "1250.35",
+    "fecha_pago": "2026-12-15",
+    "emisor": "Emisor ficticio adicional",
+    "estado": "EMITIDO"
+  }
+]
