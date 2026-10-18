@@ -36,13 +36,6 @@ terminal. Los datos serán sintéticos, deterministas y sin información sensibl
 Revisar git status y git diff antes de cada commit real. Ejecutar casos normales,
 inválidos, propiedades, formatos combinados e integración; auditar los siete pasos.
 
-## Dependencias externas
-
-ECHEQ es un tema propio: la aprobación de la cátedra no está confirmada.
-Acceso docente, nombre académico de autoría, reglas sobre asistencia, fecha y
-entrega EVA y defensa individual requieren confirmación fuera del programa.
-No inventar aprobación, publicación ni pruebas realizadas.
-
 ## Actualización de fechas y períodos (18/10/2026)
 
 El formato de presentación y de la muestra pasa a DD/MM/AAAA. Se sigue leyendo
